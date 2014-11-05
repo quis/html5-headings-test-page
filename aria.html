@@ -15,19 +15,19 @@
     <p>The first element of heading content in an element of sectioning content represents the heading for that section.</p>
     <p>Subsequent headings of equal or higher rank start new (implied) sections, headings of lower rank start implied subsections that are part of the previous one</p>
     <strong>Format for headings: Tag &mdash; XPath &mdash; Font size</strong>
-    <h1>H1 &mdash; body &gt; h1 &mdash;</h1>
-    <h2>H2 &mdash; body &gt; h2 &mdash;</h2>
+    <h1 role="heading" aria-level="1">H1 &mdash; body &gt; h1 &mdash;</h1>
+    <h2 role="heading" aria-level="2">H2 &mdash; body &gt; h2 &mdash;</h2>
     <section>
-      <h1>H1 &mdash; body &gt; section &gt; h1 &mdash;</h1>
-      <h2>H2 &mdash; body &gt; section &gt; h2 &mdash;</h2>
-      <h3>H3 &mdash; body &gt; section &gt; h3 &mdash;</h3>
+      <h1 role="heading" aria-level="2">H1 &mdash; body &gt; section &gt; h1 &mdash;</h1>
+      <h2 role="heading" aria-level="3">H2 &mdash; body &gt; section &gt; h2 &mdash;</h2>
+      <h3 role="heading" aria-level="4">H3 &mdash; body &gt; section &gt; h3 &mdash;</h3>
       <section>
-        <h1>H1 &mdash; body &gt; section &gt; section &gt; h1 &mdash;</h1>
-        <h2>H2 &mdash; body &gt; section &gt; section &gt; h2 &mdash;</h2>
-        <h3>H3 &mdash; body &gt; section &gt; section &gt; h3 &mdash;</h3>
-        <h4>H4 &mdash; body &gt; section &gt; section &gt; h4 &mdash;</h4>
+        <h1 role="heading" aria-level="3">H1 &mdash; body &gt; section &gt; section &gt; h1 &mdash;</h1>
+        <h2 role="heading" aria-level="4">H2 &mdash; body &gt; section &gt; section &gt; h2 &mdash;</h2>
+        <h3 role="heading" aria-level="5">H3 &mdash; body &gt; section &gt; section &gt; h3 &mdash;</h3>
+        <h4 role="heading" aria-level="6">H4 &mdash; body &gt; section &gt; section &gt; h4 &mdash;</h4>
         <section>
-          <h1>H1 &mdash; body &gt; section &gt; section &gt; section &gt; h1 &mdash;</h1>
+          <h1 role="heading" aria-level="4">H1 &mdash; body &gt; section &gt; section &gt; section &gt; h1 &mdash;</h1>
         </section>
       </section>
     </section>
