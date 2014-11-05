@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML5 headings test page</title>
+    <style>
+      h1 { color: red; }
+      h2 { color: blue; }
+      h3 { color: green; }
+      h4 { color: purple; }
+    </style>
+  </head>
+  <body>
+    <p>From the HTML5 spec:</p>
+    <p>The h1&ndash;h6 elements are headings.</p>
+    <p>The first element of heading content in an element of sectioning content represents the heading for that section.</p>
+    <p>Subsequent headings of equal or higher rank start new (implied) sections, headings of lower rank start implied subsections that are part of the previous one</p>
+    <strong>Format for headings: Tag &mdash; XPath &mdash; Font size</strong>
+    <h1 role="heading" aria-level="1">H1 &mdash; body &gt; h1 &mdash;</h1>
+    <h2 role="heading" aria-level="2">H2 &mdash; body &gt; h2 &mdash;</h2>
+    <section>
+      <h1 role="heading" aria-level="1">H1 &mdash; body &gt; section &gt; h1 &mdash;</h1>
+      <h2 role="heading" aria-level="2">H2 &mdash; body &gt; section &gt; h2 &mdash;</h2>
+      <h3 role="heading" aria-level="3">H3 &mdash; body &gt; section &gt; h3 &mdash;</h3>
+      <section>
+        <h1 role="heading" aria-level="1">H1 &mdash; body &gt; section &gt; section &gt; h1 &mdash;</h1>
+        <h2 role="heading" aria-level="2">H2 &mdash; body &gt; section &gt; section &gt; h2 &mdash;</h2>
+        <h3 role="heading" aria-level="3">H3 &mdash; body &gt; section &gt; section &gt; h3 &mdash;</h3>
+        <h4 role="heading" aria-level="4">H4 &mdash; body &gt; section &gt; section &gt; h4 &mdash;</h4>
+        <section>
+          <h1 role="heading" aria-level="1">H1 &mdash; body &gt; section &gt; section &gt; section &gt; h1 &mdash;</h1>
+        </section>
+      </section>
+    </section>
+    <!--
+    <p>h1&ndash;h6 elements must not be used to markup subheadings, subtitles, alternative titles and taglines unless intended to be the heading for a new section or subsection.</p>
+    <p>Note the following about levels in sections:</p>
+    <ul>
+      <li>the first element of heading content in a section represents the heading for it whatever the heading's level</li>
+      <li>subsequent headings can take two forms:
+        <ul>
+          <li>those of an equal or higher level start sections that are siblings to the one they appear in. They will form the heading for that section.</li>
+          <li>those of a lower level start sections that are children to the one they appear in. They will form the heading for the section created</li>
+        </ul>
+      </li>
+    </ul>
+    <p>There is an omission from the above when outlines are discussed in the spec (see section on <a href="http://www.w3.org/TR/html5/sections.html#sample-outlines">sample outlines</a>).</p>
+    <p>When headings are of a higher level to the previous one but equal to the one in the parent section, they form sections that are siblings to the parent section:</p>
+    <pre>
+      &lt;h2&gt;Spending money&lt;/h2&gt;
+      &lt;p&gt;Spending is what money is mainly used for.&lt;/p&gt;
+      &lt;h3&gt;Cheap things&lt;/h3&gt;
+      &lt;p&gt;Buying cheap things often not cost-effective.&lt;/p&gt;
+      &lt;h3&gt;Expensive things&lt;/h3&gt;
+      &lt;p&gt;The most expensive thing is often not the most cost-effective either.&lt;/p&gt;
+      &lt;h2&gt;Investing money&lt;/h2&gt;
+      &lt;p&gt;You can lend your money to other people.&lt;/p&gt;
+      &lt;h2&gt;Losing money&lt;/h2&gt;
+      &lt;p&gt;If you spend money or invest money, sooner or later you will lose money.&lt;/p&gt;
+    </pre>
+    <p>Becomes:</p>
+    <pre>
+      &lt;section&gt;
+       &lt;h1&gt;Spending money&lt;/h1&gt;
+       &lt;p&gt;Spending is what money is mainly used for.&lt;/p&gt;
+       &lt;section&gt;
+        &lt;h1&gt;Cheap things&lt;/h1&gt;
+        &lt;p&gt;Buying cheap things often not cost-effective.&lt;/p&gt;
+       &lt;/section&gt;
+       &lt;section&gt;
+        &lt;h1&gt;Expensive things&lt;/h1&gt;
+        &lt;p&gt;The most expensive thing is often not the most cost-effective either.&lt;/p&gt;
+       &lt;/section&gt;
+      &lt;/section&gt;
+      &lt;section&gt;
+       &lt;h1&gt;Investing money&lt;/h1&gt;
+       &lt;p&gt;You can lend your money to other people.&lt;/p&gt;
+      &lt;/section&gt;
+      &lt;section&gt;
+       &lt;h1&gt;Losing money&lt;/h1&gt;
+       &lt;p&gt;If you spend money or invest money, sooner or later you will lose money.&lt;/p&gt;
+      &lt;/section&gt;
+    </pre>
+    <p>Notice how 'Investing money' moves up from the section created by 'Expensive things' but then forms a sibling section to 'Spending money'. This implies that 'Spending money retains its heading level because only a following heading with a matching level can start a sibling section.</p>
+    -->
+  <script type="text/javascript">
+    var headings,
+        textNode;
+
+    for (var level = 1; level < 7; level++) {
+      headings = document.querySelectorAll('h' + level);
+      for (var heading = 0; heading < headings.length; heading++) {
+        textNode = document.createTextNode(' font-size: ' + window.getComputedStyle(headings[heading])['font-size']);
+        headings[heading].appendChild(textNode);
+      }
+    }
+  </script>
+ </body>
+</html>
